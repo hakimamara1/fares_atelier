@@ -27,7 +27,7 @@ const TruckIcon = () => (
     </svg>
 );
 
-// "Ensemble Trench" landing page (Angels closet, same design as the blouse page)
+// "Ensemble Trench" landing page (Fares Atelier, same design as the blouse page)
 const TrenchLanding = ({ slug, product }) => {
     // One entry per piece of the chosen pack, each with its own color and size
     const [items, setItems] = useState(() => {
@@ -104,7 +104,9 @@ const TrenchLanding = ({ slug, product }) => {
         <div className="tr-page" dir="rtl">
             {/* Hero */}
             <header className="tr-hero">
-                <img className="tr-logo" src={cldUrl(images.logo, 480)} width="200" height="125" alt={content.brand} />
+                {images.logo
+                    ? <img className="tr-logo" src={cldUrl(images.logo, 480)} width="200" height="125" alt={content.brand} />
+                    : <p className="tr-wordmark">{content.brand}</p>}
                 <h1>{content.title}</h1>
                 <p className="tr-subtitle">{content.subtitle}</p>
                 <img
@@ -264,13 +266,14 @@ const TrenchLanding = ({ slug, product }) => {
 
             {/* Footer */}
             <footer className="tr-footer">
-                <img src={cldUrl(images.logo, 320)} width="140" height="88" alt={content.brand} loading="lazy" />
+                {images.logo
+                    ? <img src={cldUrl(images.logo, 320)} width="140" height="88" alt={content.brand} loading="lazy" />
+                    : <p className="tr-wordmark tr-wordmark-small">{content.brand}</p>}
                 <p>{content.tagline}</p>
                 <p className="tr-footer-links">
                     <a href={`tel:${SHOP_PHONE}`} dir="ltr">{SHOP_PHONE}</a>
                     {' · '}
-                    <a href={FACEBOOK_PAGE}>فيسبوك</a>
-                    {' · '}
+                    {FACEBOOK_PAGE && <><a href={FACEBOOK_PAGE}>فيسبوك</a>{' · '}</>}
                     <Link to="/confidentialite">سياسة الخصوصية</Link>
                 </p>
                 <p className="tr-copy">© {content.brand} {new Date().getFullYear()}</p>

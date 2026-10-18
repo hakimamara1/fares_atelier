@@ -1,4 +1,4 @@
-/* "Ensemble Trench" landing page — Angels closet (same design as the blouse page).
+/* "Ensemble Trench" landing page — Fares Atelier (same design as the blouse page).
    Only this page loads this file; every class starts with tr-. */
 
 .tr-page {
@@ -135,6 +135,17 @@
 .tr-logo {
     width: 200px;
     height: auto;
+}
+
+.tr-wordmark {
+    font-family: 'Rakkas', 'Tajawal', serif;
+    font-size: 26px;
+    letter-spacing: 0.04em;
+    color: var(--tr-rose);
+}
+
+.tr-wordmark-small {
+    font-size: 20px;
 }
 
 .tr-hero h1 {

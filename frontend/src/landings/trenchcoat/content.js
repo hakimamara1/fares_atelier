@@ -1,4 +1,4 @@
-// Every text and photo of the "trench-coat" landing page (Angels closet — Trench Élégant).
+// Every text and photo of the "trench-coat" landing page (Fares Atelier — Trench Élégant).
 // Change them here to test another message.
 
 export { SHOP_PHONE, FACEBOOK_PAGE } from '../../lib/shop';
@@ -12,7 +12,9 @@ const photo = (path) => `${CLD}/${path}`;
 const coat = (path) => `${CLD}/c_crop,h_0.90,g_north/${path}`;
 
 export const images = {
-    logo: photo('v1789924693/malaksit-landing/blouse/dtaqu1hkmrcwoupgblfn.png'),
+    // The old logo file carried another brand's name: the page writes the brand name
+    // instead. Drop a Cloudinary URL here to use a picture.
+    logo: '',
     // Also the product's photo in the database, so index.html preloads the file the page shows
     hero: coat('v1791676629/malaksit-landing/trenchcoat/rfj3nnrhzqlo0ztepzba.webp'),
     // The eight colours side by side
@@ -20,7 +22,7 @@ export const images = {
 };
 
 export const content = {
-    brand: 'Angels closet',
+    brand: 'Fares Atelier',
     // Shown in the browser tab, and the order the colours appear in
     pageTitle: 'Trench Élégant',
     defaultColorName: 'Marron caramel',

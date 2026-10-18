@@ -1,4 +1,4 @@
-/* "بلوزة Plissé" landing page — Angels closet (design board V1).
+/* "بلوزة Plissé" landing page — Fares Atelier (design board V1).
    Only this page loads this file; every class starts with bl-. */
 
 .bl-page {
@@ -135,6 +135,17 @@
 .bl-logo {
     width: 200px;
     height: auto;
+}
+
+.bl-wordmark {
+    font-family: 'Rakkas', 'Tajawal', serif;
+    font-size: 26px;
+    letter-spacing: 0.04em;
+    color: var(--bl-rose);
+}
+
+.bl-wordmark-small {
+    font-size: 20px;
 }
 
 .bl-hero h1 {

@@ -5,7 +5,7 @@ import { swatchColor } from '../../lib/colors';
 import { defaultColor, pickSize } from '../../lib/variants';
 import { trackEvent } from '../../utils/FacebookPixel';
 import { offerPrice, offerSaving } from '../offers';
-import { content, FACEBOOK_PAGE, SHOP_PHONE, WHATSAPP_NUMBER } from './content';
+import { content, FACEBOOK_PAGE, images, SHOP_PHONE, WHATSAPP_NUMBER } from './content';
 import { colorLabel, isSoldOut } from './helpers';
 import Icon from './Icons';
 import LandingOrderForm from './LandingOrderForm';
@@ -13,7 +13,6 @@ import './uniforme.css';
 
 // Keep in sync with the hero preload in index.html
 const HERO_SIZES = '(min-width: 900px) 380px, 300px';
-const LOGO = '/landings/angels-kids-logo.webp';
 
 const scrollGently = (element, block = 'start') => {
     if (!element) return;
@@ -21,7 +20,7 @@ const scrollGently = (element, block = 'start') => {
     element.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block });
 };
 
-// "Uniforme scolaire" landing page (design: Angels Kids — School Uniform Landing Page)
+// "Uniforme scolaire" landing page (design: School Uniform Landing Page)
 const UniformeLanding = ({ slug, product }) => {
     // One entry per set of the chosen pack, each with its own color and size (a size is chosen for her)
     const [items, setItems] = useState(() => {
@@ -110,7 +109,9 @@ const UniformeLanding = ({ slug, product }) => {
         <div className="ak-page" dir="rtl">
             {/* 1. Hero */}
             <header className="ak-hero">
-                <img className="ak-logo" src={LOGO} width="150" height="80" alt="Angels Kids" />
+                {images.logo
+                    ? <img className="ak-logo" src={images.logo} width="150" height="80" alt={content.brand} />
+                    : <p className="ak-wordmark">{content.brand}</p>}
                 <div className="ak-hero-grid">
                     <div className="ak-hero-title">
                         <h1>{content.title}</h1>
@@ -320,7 +321,9 @@ const UniformeLanding = ({ slug, product }) => {
 
             {/* 12. Footer */}
             <footer className="ak-footer">
-                <img src={LOGO} width="120" height="64" alt="Angels Kids" loading="lazy" />
+                {images.logo
+                    ? <img src={images.logo} width="120" height="64" alt={content.brand} loading="lazy" />
+                    : <p className="ak-wordmark ak-wordmark-small">{content.brand}</p>}
                 <p className="ak-tagline">{content.tagline}</p>
                 <div className="ak-contact">
                     <a href={`tel:${SHOP_PHONE}`} aria-label="اتصلي بنا">
@@ -333,13 +336,15 @@ const UniformeLanding = ({ slug, product }) => {
                             <span>واتساب</span>
                         </a>
                     )}
-                    <a href={FACEBOOK_PAGE} aria-label="فيسبوك">
-                        <span className="ak-icon-circle ak-icon-small"><Icon name="facebook" size={17} color="#1C2B45" /></span>
-                        <span>فيسبوك</span>
-                    </a>
+                    {FACEBOOK_PAGE && (
+                        <a href={FACEBOOK_PAGE} aria-label="فيسبوك">
+                            <span className="ak-icon-circle ak-icon-small"><Icon name="facebook" size={17} color="#1C2B45" /></span>
+                            <span>فيسبوك</span>
+                        </a>
+                    )}
                 </div>
                 <p className="ak-legal">
-                    <Link to="/confidentialite">سياسة الخصوصية</Link> · Angels Kids © {new Date().getFullYear()}
+                    <Link to="/confidentialite">سياسة الخصوصية</Link> · {content.brand} © {new Date().getFullYear()}
                 </p>
             </footer>
 

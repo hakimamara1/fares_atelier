@@ -37,7 +37,7 @@ const trenchCoatProduct = () => ({
     price: 3800,
     offers: [{ quantity: 2, price: 7000 }, { quantity: 3, price: 9000 }],
     description: 'معطف Trench Élégant بقصة واسعة وأكمام منفوخة. تايل ستاندار يناسب من 38 إلى 44، متوفر بـ 8 ألوان.',
-    category: 'angel_clost',
+    category: 'girls-clothing',
     images: photos(HERO),
     colors: COLORS.map(([name, hexCode, file]) => ({
         name,

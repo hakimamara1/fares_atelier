@@ -1,18 +1,22 @@
 {
     "uniforme": {
-        "name": "Uniforme scolaire — A",
+        "name": "Uniforme scolaire — Fares Atelier",
         "productId": "6aae888789c922f02f4a1dae"
     },
     "blouse": {
-        "name": "Blouse Plissé — Angels closet",
+        "name": "Blouse Plissé — Fares Atelier",
         "productId": "6aa4b47be4092228b138061f"
     },
     "trench": {
-        "name": "Ensemble Trench — Angels closet",
+        "name": "Ensemble Trench — Fares Atelier",
         "productId": "6b3c08e24f7a15d9be02771c"
     },
     "trench-coat": {
-        "name": "Trench Élégant — Angels closet",
+        "name": "Trench Élégant — Fares Atelier",
         "productId": "6b4d19f35a8b26e0cf138826"
+    },
+    "lilia": {
+        "name": "Ensemble Lilia — Fares Atelier",
+        "productId": "6ad52cd452994032500977db"
     }
 }

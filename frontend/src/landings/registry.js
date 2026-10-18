@@ -9,6 +9,7 @@ const PAGES = {
     blouse: lazy(() => import('./blouse/BlouseLanding')),
     trench: lazy(() => import('./trench/TrenchLanding')),
     'trench-coat': lazy(() => import('./trenchcoat/TrenchCoatLanding')),
+    lilia: lazy(() => import('./lilia/LiliaLanding')),
 };
 
 export const findLanding = (slug) => {

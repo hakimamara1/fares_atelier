@@ -1,4 +1,4 @@
-// Every text and photo of the "trench" landing page (Angels closet — Ensemble Trench).
+// Every text and photo of the "trench" landing page (Fares Atelier — Ensemble Trench).
 // Change them here to test another message.
 
 export { SHOP_PHONE, FACEBOOK_PAGE } from '../../lib/shop';
@@ -8,13 +8,15 @@ const CLD = 'https://res.cloudinary.com/djakukf0r/image/upload';
 const photo = (path) => `${CLD}/${path}`;
 
 export const images = {
-    logo: photo('v1789924693/malaksit-landing/blouse/dtaqu1hkmrcwoupgblfn.png'),
+    // The old logo file carried another brand's name: the page writes the brand name
+    // instead. Drop a Cloudinary URL here to use a picture.
+    logo: '',
     // Also the product's photo in the database, so index.html preloads the file the page shows
     hero: photo('v1791587640/malaksit-landing/trench/rpj9tefm4rfpguaygspp.jpg'),
 };
 
 export const content = {
-    brand: 'Angels closet',
+    brand: 'Fares Atelier',
     // Shown in the browser tab, and the order the colors appear in
     pageTitle: 'Ensemble Trench',
     defaultColorName: 'Beige',
@@ -77,7 +79,7 @@ export const content = {
         },
     ],
 
-    galleryTitle: 'من إطلالات Angels closet',
+    galleryTitle: 'من إطلالات Fares Atelier',
     gallery: [],
 
     formTitle: 'أكملي طلبك الآن',

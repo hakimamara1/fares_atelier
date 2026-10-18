@@ -14,7 +14,7 @@ const canPrettyPrint = () => {
 
 const logger = pino({
     level: env.logLevel,
-    base: { service: 'angel-kids-api' },
+    base: { service: 'fares-atelier-api' },
     redact: { paths: ['req.headers.authorization', 'req.headers.cookie'], censor: '[redacted]' },
     ...(canPrettyPrint() && {
         transport: {

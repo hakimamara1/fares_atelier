@@ -1,7 +1,7 @@
 // ZR Express integration against a fake ZR API (no network, no real account)
 process.env.ZR_API_KEY = 'test-zr-key';
 process.env.ZR_TENANT_ID = 'test-tenant';
-process.env.ZR_WEBHOOK_SECRET = `whsec_${Buffer.from('angel-kids-webhook-secret-32-byt').toString('base64')}`;
+process.env.ZR_WEBHOOK_SECRET = `whsec_${Buffer.from('fares-atelier-webhook-secret-32b').toString('base64')}`;
 
 const { startDb, stopDb, clearDb, authHeader } = require('./setup');
 const { test, before, after, beforeEach } = require('node:test');
