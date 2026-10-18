@@ -35,7 +35,8 @@ const Row = ({ label, value }) => (
 const ThankYou = () => {
     const { state } = useLocation();
     const order = state?.order;
-    const messengerUrl = order ? `${MESSENGER_PAGE}?text=${encodeURIComponent(orderMessage(order))}` : MESSENGER_PAGE;
+    // No Messenger page set (see lib/shop.js): the phone button below is then the only way back to us
+    const messengerUrl = MESSENGER_PAGE && (order ? `${MESSENGER_PAGE}?text=${encodeURIComponent(orderMessage(order))}` : MESSENGER_PAGE);
 
     return (
         <main className="min-h-screen bg-gray-50 px-4 py-10">
@@ -68,13 +69,15 @@ const ThankYou = () => {
                     </section>
                 )}
 
-                <a
-                    href={messengerUrl}
-                    className="flex items-center justify-center gap-2 w-full bg-blue-600 text-white py-3.5 rounded-xl font-bold hover:bg-blue-700 transition-colors"
-                >
-                    <span>أكّد طلبك عبر ماسنجر</span>
-                    <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.9 1.408 5.485 3.593 7.155v3.425l3.29-1.815c1.002.288 2.062.435 3.117.435 5.523 0 10-4.145 10-9.258C22 6.145 17.523 2 12 2zm1.096 12.336l-2.73-2.909-5.32 2.909 5.86-6.22 2.808 2.909 5.234-2.909-5.852 6.22z" /></svg>
-                </a>
+                {messengerUrl && (
+                    <a
+                        href={messengerUrl}
+                        className="flex items-center justify-center gap-2 w-full bg-blue-600 text-white py-3.5 rounded-xl font-bold hover:bg-blue-700 transition-colors"
+                    >
+                        <span>أكّد طلبك عبر ماسنجر</span>
+                        <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.9 1.408 5.485 3.593 7.155v3.425l3.29-1.815c1.002.288 2.062.435 3.117.435 5.523 0 10-4.145 10-9.258C22 6.145 17.523 2 12 2zm1.096 12.336l-2.73-2.909-5.32 2.909 5.86-6.22 2.808 2.909 5.234-2.909-5.852 6.22z" /></svg>
+                    </a>
+                )}
                 <a
                     href={`tel:${SHOP_PHONE}`}
                     className="flex items-center justify-center gap-2 w-full bg-white border border-gray-200 text-gray-800 py-3.5 rounded-xl font-bold hover:bg-gray-50 transition-colors"

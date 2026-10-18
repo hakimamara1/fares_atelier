@@ -1,4 +1,4 @@
-/* "Uniforme scolaire" landing page — colors, type and components from the Angels Kids design.
+/* "Uniforme scolaire" landing page — colors, type and components from the School Uniform design.
    Only this page loads this file. Every class starts with ak- so nothing leaks into the shop. */
 
 .ak-page {
@@ -158,6 +158,19 @@
     width: 150px;
     height: auto;
     margin: 0 auto;
+}
+
+.ak-wordmark {
+    margin: 0 auto;
+    font-family: 'Tajawal', system-ui, sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--ak-navy);
+}
+
+.ak-wordmark-small {
+    font-size: 20px;
 }
 
 .ak-hero-grid {

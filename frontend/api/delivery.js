@@ -4,7 +4,7 @@
 const BACKEND_URL = (
     process.env.BACKEND_URL ||
     process.env.VITE_BACKEND_URL ||
-    'https://algel-kids-xkjm.onrender.com'
+    'http://localhost:5001'
 ).replace(/\/+$/, '');
 
 const GUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;

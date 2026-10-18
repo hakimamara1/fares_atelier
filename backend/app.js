@@ -16,8 +16,11 @@ const deliveryRoutes = require('./routes/deliveryRoutes');
 const webhookRoutes = require('./routes/webhookRoutes');
 const funnelRoutes = require('./routes/funnelRoutes');
 
-// Preview deployments of this Vercel project (other teams' previews don't match)
-const VERCEL_PREVIEW = /^https:\/\/algel-kids-[a-z0-9-]+-hakimamara20242023-6761s-projects\.vercel\.app$/;
+// Preview deployments of this Vercel project (other teams' previews don't match).
+// VERCEL_PROJECT is the project name; without it no preview origin is allowed.
+const VERCEL_PREVIEW = env.vercelProject
+    ? new RegExp(`^https://${env.vercelProject.replace(/[^a-z0-9-]/gi, '')}-[a-z0-9-]+\\.vercel\\.app$`)
+    : null;
 const SLOW_REQUEST_MS = 1000;
 // No request line for these: health checks, and the form-step beacons (they log their own line)
 const QUIET_PATHS = new Set(['/', '/health', '/api/funnel']);
@@ -56,7 +59,7 @@ app.use(pinoHttp({
 
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 app.use(cors({
-    origin: (origin, callback) => callback(null, !origin || env.allowedOrigins.includes(origin) || VERCEL_PREVIEW.test(origin)),
+    origin: (origin, callback) => callback(null, !origin || env.allowedOrigins.includes(origin) || Boolean(VERCEL_PREVIEW?.test(origin))),
 }));
 
 // Webhooks read their raw body to check the signature, so they come before the JSON parser

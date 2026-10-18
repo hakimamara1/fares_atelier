@@ -27,7 +27,7 @@ const TruckIcon = () => (
     </svg>
 );
 
-// "بلوزة Plissé" landing page (design: Angels closet — صفحة الهبوط, board V1)
+// "بلوزة Plissé" landing page (design: Fares Atelier — صفحة الهبوط, board V1)
 const BlouseLanding = ({ slug, product }) => {
     // One entry per piece of the chosen pack, each with its own color and size
     const [items, setItems] = useState(() => {
@@ -104,7 +104,9 @@ const BlouseLanding = ({ slug, product }) => {
         <div className="bl-page" dir="rtl">
             {/* Hero */}
             <header className="bl-hero">
-                <img className="bl-logo" src={cldUrl(images.logo, 480)} width="200" height="125" alt={content.brand} />
+                {images.logo
+                    ? <img className="bl-logo" src={cldUrl(images.logo, 480)} width="200" height="125" alt={content.brand} />
+                    : <p className="bl-wordmark">{content.brand}</p>}
                 <h1>{content.title}</h1>
                 <p className="bl-subtitle">{content.subtitle}</p>
                 <img
@@ -262,13 +264,14 @@ const BlouseLanding = ({ slug, product }) => {
 
             {/* Footer */}
             <footer className="bl-footer">
-                <img src={cldUrl(images.logo, 320)} width="140" height="88" alt={content.brand} loading="lazy" />
+                {images.logo
+                    ? <img src={cldUrl(images.logo, 320)} width="140" height="88" alt={content.brand} loading="lazy" />
+                    : <p className="bl-wordmark bl-wordmark-small">{content.brand}</p>}
                 <p>{content.tagline}</p>
                 <p className="bl-footer-links">
                     <a href={`tel:${SHOP_PHONE}`} dir="ltr">{SHOP_PHONE}</a>
                     {' · '}
-                    <a href={FACEBOOK_PAGE}>فيسبوك</a>
-                    {' · '}
+                    {FACEBOOK_PAGE && <><a href={FACEBOOK_PAGE}>فيسبوك</a>{' · '}</>}
                     <Link to="/confidentialite">سياسة الخصوصية</Link>
                 </p>
                 <p className="bl-copy">© {content.brand} {new Date().getFullYear()}</p>

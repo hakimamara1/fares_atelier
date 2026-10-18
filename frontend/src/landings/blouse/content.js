@@ -1,4 +1,4 @@
-// Every text and photo of the "blouse" landing page (Angels closet — بلوزة Plissé).
+// Every text and photo of the "blouse" landing page (Fares Atelier — بلوزة Plissé).
 // Change them here to test another message.
 
 export { SHOP_PHONE, FACEBOOK_PAGE } from '../../lib/shop';
@@ -8,12 +8,14 @@ const CLD = 'https://res.cloudinary.com/djakukf0r/image/upload';
 const photo = (path) => `${CLD}/${path}`;
 
 export const images = {
-    logo: photo('v1789924693/malaksit-landing/blouse/dtaqu1hkmrcwoupgblfn.png'),
+    // The old logo file carried another brand's name: the page writes the brand name
+    // instead. Drop a Cloudinary URL here to use a picture.
+    logo: '',
     hero: photo('v1789924696/malaksit-landing/blouse/wxtevtgfsbnpgiwikl17.png'),
 };
 
 export const content = {
-    brand: 'Angels closet',
+    brand: 'Fares Atelier',
     // Shown in the browser tab, and the order the colors appear in
     pageTitle: 'بلوزة Plissé',
     defaultColorName: 'Rose',
@@ -84,7 +86,7 @@ export const content = {
         },
     ],
 
-    galleryTitle: 'من إطلالات Angels closet',
+    galleryTitle: 'من إطلالات Fares Atelier',
     gallery: [
         photo('v1789924733/malaksit-landing/blouse/exljtpl3cxomfdjfg4uq.png'),
         photo('v1789924736/malaksit-landing/blouse/jd9lvb6yhuvnrlo5jezi.png'),

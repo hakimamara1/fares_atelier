@@ -9,9 +9,12 @@ const env = {
     logLevel: process.env.LOG_LEVEL || 'info',
     adminPassword: process.env.ADMIN_PASSWORD,
     adminTokenSecret: process.env.ADMIN_TOKEN_SECRET,
+    // Production origins come from ALLOWED_ORIGINS. The defaults are the local dev servers only.
     allowedOrigins: process.env.ALLOWED_ORIGINS
         ? list(process.env.ALLOWED_ORIGINS)
-        : ['https://algel-kids.vercel.app', 'http://localhost:5173', 'http://localhost:4174', 'http://10.40.182.128:5173'],
+        : ['http://localhost:5173', 'http://localhost:4174', 'http://10.40.182.128:5173'],
+    // Vercel project name, so its preview deployments are allowed too (empty = no previews)
+    vercelProject: process.env.VERCEL_PROJECT || '',
     loginRateLimit: Number(process.env.LOGIN_RATE_LIMIT) || 5,
     orderRateLimit: Number(process.env.ORDER_RATE_LIMIT) || 10, // per phone number, per hour
     orderIpRateLimit: Number(process.env.ORDER_IP_RATE_LIMIT) || 100, // per connection, per hour
@@ -28,11 +31,11 @@ const env = {
     },
     // Meta Conversions API. Without a token the server sends nothing (the browser Pixel still works).
     meta: {
-        pixelId: process.env.META_PIXEL_ID || '1190930022111249',
+        pixelId: process.env.META_PIXEL_ID,
         token: process.env.META_CAPI_TOKEN,
         apiVersion: process.env.META_API_VERSION || 'v25.0',
         testEventCode: process.env.META_TEST_EVENT_CODE, // only while testing in Events Manager
-        siteUrl: (process.env.SITE_URL || 'https://algel-kids.vercel.app').replace(/\/+$/, ''),
+        siteUrl: (process.env.SITE_URL || process.env.URL_FRONT_END || 'http://localhost:5173').replace(/\/+$/, ''),
     },
     cloudinary: {
         cloud_name: process.env.CLOUDINARY_CLOUD_NAME,

@@ -26,7 +26,7 @@ const TruckIcon = () => (
     </svg>
 );
 
-// "بلوزة Plissé" landing page (design: Angels closet — صفحة الهبوط, board V1)
+// "بلوزة Plissé" landing page (design: Fares Atelier — صفحة الهبوط, board V1)
 const TrenchCoatLanding = ({ slug, product }) => {
     // One entry per piece of the chosen pack, each with its own color and size
     const [items, setItems] = useState(() => {
@@ -103,7 +103,9 @@ const TrenchCoatLanding = ({ slug, product }) => {
         <div className="tc-page" dir="rtl">
             {/* Hero */}
             <header className="tc-hero">
-                <img className="tc-logo" src={cldUrl(images.logo, 480)} width="200" height="125" alt={content.brand} />
+                {images.logo
+                    ? <img className="tc-logo" src={cldUrl(images.logo, 480)} width="200" height="125" alt={content.brand} />
+                    : <p className="tc-wordmark">{content.brand}</p>}
                 <h1>{content.title}</h1>
                 <p className="tc-subtitle">{content.subtitle}</p>
                 <img
@@ -231,13 +233,14 @@ const TrenchCoatLanding = ({ slug, product }) => {
 
             {/* Footer */}
             <footer className="tc-footer">
-                <img src={cldUrl(images.logo, 320)} width="140" height="88" alt={content.brand} loading="lazy" />
+                {images.logo
+                    ? <img src={cldUrl(images.logo, 320)} width="140" height="88" alt={content.brand} loading="lazy" />
+                    : <p className="tc-wordmark tc-wordmark-small">{content.brand}</p>}
                 <p>{content.tagline}</p>
                 <p className="tc-footer-links">
                     <a href={`tel:${SHOP_PHONE}`} dir="ltr">{SHOP_PHONE}</a>
                     {' · '}
-                    <a href={FACEBOOK_PAGE}>فيسبوك</a>
-                    {' · '}
+                    {FACEBOOK_PAGE && <><a href={FACEBOOK_PAGE}>فيسبوك</a>{' · '}</>}
                     <Link to="/confidentialite">سياسة الخصوصية</Link>
                 </p>
                 <p className="tc-copy">© {content.brand} {new Date().getFullYear()}</p>

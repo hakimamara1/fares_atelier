@@ -24,7 +24,7 @@ const trenchProduct = () => ({
     price: 3800,
     offers: [{ quantity: 2, price: 6100 }],
     description: 'طقم Ensemble Trench: سويت شيرت بقبعة + سروال واسع، قماش شتوي دافئ. متوفر بثلاث ألوان ومقاسات من 38 إلى 46.',
-    category: 'angel_clost',
+    category: 'girls-clothing',
     images: photos(BEIGE),
     colors: [
         { name: 'Beige', hexCode: '#D9CBB6', sizes: sizes(), images: photos(BEIGE) },

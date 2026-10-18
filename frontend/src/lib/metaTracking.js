@@ -14,7 +14,7 @@ const readCookie = (name) => {
 };
 
 // The level counts the parts of the domain the cookie belongs to:
-// "algel-kids.vercel.app" = 2, like the Pixel writes it
+// "fares-atelier.vercel.app" = 2, like the Pixel writes it
 const domainLevel = () => Math.max(window.location.hostname.split('.').length - 1, 0);
 
 // The fbclid exactly as it stands in the address (no decoding, no cleaning)

@@ -70,7 +70,7 @@ const placeOrder = (phone) => request(app)
         product: product._id.toString(),
         variant: { color: 'Rose', size: '38' },
         customer: customer(phone),
-        tracking: { fbp: 'fb.1.1700000000000.111', fbc: 'fb.1.1700000000000.IwcGRvZgVleHRuA2FlbQIxMAABHqTestClickId', sourceUrl: 'https://algel-kids.vercel.app/product/abc?fbclid=AbCd' },
+        tracking: { fbp: 'fb.1.1700000000000.111', fbc: 'fb.1.1700000000000.IwcGRvZgVleHRuA2FlbQIxMAABHqTestClickId', sourceUrl: 'https://fares-atelier.vercel.app/product/abc?fbclid=AbCd' },
     });
 const setStatus = (id, status) => request(app).put(`/api/orders/${id}/status`).set(authHeader()).send({ status });
 const confirmedOrder = async (phone) => {
@@ -92,7 +92,7 @@ test('placing an order sends one Lead with hashed customer data and the product 
     const event = lead.event;
     assert.equal(event.event_id, `lead_${order._id}`);
     assert.equal(event.action_source, 'website');
-    assert.equal(event.event_source_url, 'https://algel-kids.vercel.app/product/abc?fbclid=AbCd');
+    assert.equal(event.event_source_url, 'https://fares-atelier.vercel.app/product/abc?fbclid=AbCd');
     assert.ok(Math.abs(event.event_time - Date.now() / 1000) < 60);
     assert.deepEqual(event.custom_data, {
         currency: 'DZD',
@@ -218,7 +218,7 @@ test('a click id that is not Meta\'s own (old cookie, "?fbclid=fbclid" test link
         tracking: {
             fbp: 'fb.2.1789257218026.1234567890',
             fbc: 'fb.2.1789257218026.fbclid', // the placeholder from a test link
-            sourceUrl: 'https://algel-kids.vercel.app/l/uniforme',
+            sourceUrl: 'https://fares-atelier.vercel.app/l/uniforme',
         },
     }).expect(201);
     await settle(1);

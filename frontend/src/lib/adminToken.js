@@ -1,5 +1,5 @@
 // Kept separate from adminApi.js so the shop bundle never pulls in axios
-const TOKEN_KEY = 'angel-admin-token';
+const TOKEN_KEY = 'fares-admin-token';
 
 export const getAdminToken = () => {
     try {

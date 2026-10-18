@@ -6,7 +6,7 @@
 const BACKEND_URL = (
     process.env.BACKEND_URL ||
     process.env.VITE_BACKEND_URL ||
-    'https://algel-kids-xkjm.onrender.com'
+    'http://localhost:5001'
 ).replace(/\/+$/, '');
 
 const PRODUCT_ID = /^[a-f0-9]{24}$/i;

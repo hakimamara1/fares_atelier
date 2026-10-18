@@ -4,7 +4,13 @@
 export const WHATSAPP_NUMBER = '';
 export { SHOP_PHONE, FACEBOOK_PAGE } from '../../lib/shop';
 
+export const images = {
+    // No logo file yet: the page writes the brand name instead. Drop a URL here to use a picture.
+    logo: '',
+};
+
 export const content = {
+    brand: 'Fares Atelier',
     title: 'الدخول المدرسي بأناقة',
     subtitle: 'قميص + تنورة مطوية + كرافات — 3 ألوان',
     cta: 'اطلبي الآن — الدفع عند الاستلام',
@@ -82,5 +88,5 @@ export const content = {
         },
     ],
 
-    tagline: 'Luxury kids wear',
+    tagline: 'إطلالات أنيقة لكل الجزائريات',
 };
